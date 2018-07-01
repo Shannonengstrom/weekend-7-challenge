@@ -4,9 +4,12 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 // import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
-const mapReduxToProps = reduxStore => ({
+const mapReduxToProps = (reduxStore) => ({
     reduxStore
 });
+
+
+// component did mount, 
 
 class Page5 extends Component {
 
@@ -17,29 +20,31 @@ class Page5 extends Component {
         }
     }
 
+    componentDidMount() {
+        this.sendFeedbackToServer();
+      }
 
     sendFeedbackToServer = () => {
 
-        const feedback = {
-            q1: this.props.reduxStore.feedbackReducer,
-            q2: this.props.reduxStore.feedbackReducer, 
-            q3: this.props.reduxStore.feedbackReducer, 
-            q4: this.props.reduxStore.feedbackReducer,
-        }
+        const feedback = this.props.reduxStore.feedbackReducer
         console.log('in sendFeedbackToServer', feedback)
-        axios.post('/api/feedback', feedback).then((response) => {
+        axios.post('/api/feedback', feedback)
+        .then((response) => {
+            this.refreshData();
             console.log('response from server', response)
-        })
-        .catch((error) => {
+        }).catch((error) => {
             console.log(error);
             alert('Error! Call your local dev team!')
         });  
     }
 
-
     handleClick = () => {
-        this.sendFeedbackToServer(); 
         (this.setState({toPage1: true}));
+    }
+
+    refreshData() {
+        const action = {type: 'RESET', payload: ''};
+        this.props.dispatch(action);
     }
 
 

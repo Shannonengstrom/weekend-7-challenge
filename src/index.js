@@ -9,22 +9,26 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 
-const feedbackReducer = (state = [], action) => {
+const feedbackReducer = (state = {}, action) => {
     if(action.type === 'ADD_q1'){    
         console.log('In feedbackReducer', action);
-        return {...this.state, q1: action.payload};
+        return {...state, q1: action.payload};
     }
     if(action.type === 'ADD_q2'){    
         console.log('In feedbackReducer', action);
-        return {...this.state, q2: action.payload};    
+        return {...state, q2: action.payload};    
     }
     if(action.type === 'ADD_q3'){    
         console.log('In feedbackReducer', action);
-        return {...this.state, q3: action.payload};    
+        return {...state, q3: action.payload};    
     }
     if(action.type === 'ADD_q4'){    
         console.log('In feedbackReducer', action);
-       return {...this.state, q4: action.payload};
+       return {...state, q4: action.payload};
+    }
+    if(action.type === 'RESET'){    
+        console.log('In feedbackReducer', action);
+       return action.payload;
     }
     return state;  
 }

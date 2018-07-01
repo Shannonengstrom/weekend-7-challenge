@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 // import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
-const mapReduxToProps = reduxStore => ({
+const mapReduxToProps = (reduxStore) => ({
     reduxStore
 });
 
