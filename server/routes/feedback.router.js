@@ -5,7 +5,14 @@ const pool = require('../modules/pool');
 
 
 router.get('/', (req, res) => {
-    res.send(feedback);
+    console.log('in router.get');
+    const queryText = 'SELECT * FROM feedback';
+    pool.query(queryText).then((result) => {
+        res.send(result.rows);
+    }).catch((err) => {
+        console.log('error making query', err);
+        res.sendStatus(500);
+    });
 });
 
 router.post('/', (req, res) => {
@@ -24,9 +31,18 @@ router.post('/', (req, res) => {
 });
 
 
-router.delete('/', (req, res) => {
-    console.log('in router.delete', feedback);
-    feedback = [];
+router.delete('/:id', (req, res) => {
+    console.log('in router.delete', req.params.id);
+    const id = req.params.id;
+    const queryText = `DELETE FROM feedback WHERE id=$1`;
+    pool.query(queryText, [id])
+        .then((result) => {
+        console.log('successful delete from feedback', result);
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log('error deleting feedback', err);
+        res.sendStatus(401);
+    });
     res.sendStatus(200);    
 });
 

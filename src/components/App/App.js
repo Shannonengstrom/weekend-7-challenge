@@ -6,6 +6,9 @@ import Page2 from '../Page2/Page2';
 import Page3 from '../Page3/Page3';
 import Page4 from '../Page4/Page4';
 import Page5 from '../Page5/Page5';
+import AdminPage from '../Admin/AdminPage';
+import AdminInfo from '../Admin/AdminInfo';
+
 
 class App extends Component {
 
@@ -25,6 +28,7 @@ class App extends Component {
             <Route exact path="/3" component={Page3}/>
             <Route exact path="/4" component={Page4}/>
             <Route exact path="/5" component={Page5}/>
+            <Route exact path="/admin" component={AdminPage}/>
           </div>
         </Router>
       </div>

@@ -9,8 +9,6 @@ const mapReduxToProps = (reduxStore) => ({
 });
 
 
-// component did mount, 
-
 class Page5 extends Component {
 
     constructor () {
