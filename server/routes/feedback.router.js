@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-let questions = [{q1: 3, q2: 3, q3: 3, q4: 3}];
+let feedback = [{q1: 3, q2: 3, q3: 3, q4: 'testing'}];
 
 router.get('/', (req, res) => {
-    res.send(questions);
+    res.send(feedback);
 });
 
 router.post('/', (req, res) => {
     console.log('in router.post', req.body);
-    questions.push(req.body);
+    feedback.push(req.body);
     res.sendStatus(201);
 });
 
 router.delete('/', (req, res) => {
-    console.log('in router.delete', questions);
-    questions = [];
+    console.log('in router.delete', feedback);
+    feedback = [];
     res.sendStatus(200);    
 });
 
