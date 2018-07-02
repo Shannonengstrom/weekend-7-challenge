@@ -45,7 +45,6 @@ class Page5 extends Component {
         this.props.dispatch(action);
     }
 
-
     render() {
         if(this.state.toPage1 === true) {
             return <Redirect to='/'/>

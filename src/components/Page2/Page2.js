@@ -48,7 +48,7 @@ class Page2 extends Component {
         }
         return (
             <div>
-                <pre>{JSON.stringify(this.props.reduxStore.feedbackReducer)}</pre>
+                {/* <pre>{JSON.stringify(this.props.reduxStore.feedbackReducer)}</pre> */}
                 {/* <div>{this.props.reduxStore.questionsReducer}</div> */}
                 <div>
                     <h2>How well are you understanding the content?</h2>

@@ -3,9 +3,6 @@ import axios from 'axios';
 
 class AdminInfo extends Component {
 
-
-
-
     render() {
         return (
                 <tr>
