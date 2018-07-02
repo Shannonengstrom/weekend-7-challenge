@@ -25,3 +25,19 @@
         const feedback = this.props.reduxStore.feedbackReducer
         console.log('in sendFeedbackToServer', feedback)
         axios.post('/api/feedback', feedback) -->
+
+
+
+----- 
+# Organizing reducers: 
+
+1. folder structure: in SRC - redux/reducers/feedbackReducer.js
+
+2. In index.js file: 
+  - import redux from './redux/reducers/feedback.reducers
+  - import combineReducers at top of page as well as registerServiceWorker, createStore, applyMiddleware, Provider, logger, 
+
+3. 
+ - In feedbackReducer.js, copy and paste feedbackReducer copy that was in index.js
+ - import combineReducers at top of page 
+ - export default combineReducers({feedbackReducers})

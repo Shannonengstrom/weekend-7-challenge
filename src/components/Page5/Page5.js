@@ -30,10 +30,13 @@ class Page5 extends Component {
       }
 
     sendFeedbackToServer = () => {
-
+        // set variable for data to send
         const feedback = this.props.reduxStore.feedbackReducer
         console.log('in sendFeedbackToServer', feedback)
+        // axios call and send data to url
+        // an axios call returns a promise - .then
         axios.post('/api/feedback', feedback)
+        // .then is only here because of the axios.post
         .then((response) => {
             this.refreshData();
             console.log('response from server', response)
