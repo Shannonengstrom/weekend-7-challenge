@@ -9,8 +9,8 @@ const mapReduxToProps = (reduxStore) => ({
 
 class Page1 extends Component {
 
-    constructor () {
-        super(); 
+    constructor(props) {
+        super(props); 
         this.state = {
         q1: 0, 
         toPage2: false
@@ -20,6 +20,7 @@ class Page1 extends Component {
     sendFeedbackToRedux = () => {
         const body = this.state.q1;
         const action = {type: 'ADD_q1', payload: body};
+        //dispatch is available because connect was imported and exported
         this.props.dispatch(action);
         console.log(body);
         

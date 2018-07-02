@@ -8,6 +8,13 @@ const mapReduxToProps = (reduxStore) => ({
     reduxStore
 });
 
+// other way of writing mapReduxToProps: 
+// const mapReduxToProps = (reduxStore) => { 
+    //return {
+        // reduxStore : reduxStore
+   // }
+//}
+
 
 class Page5 extends Component {
 

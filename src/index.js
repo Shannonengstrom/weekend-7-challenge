@@ -9,8 +9,16 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+// const initialState = {
+//     q1 : 0, 
+//     q2 : 0, 
+//     q3 : 0, 
+//     q4 : ''
+// }
+
 
 const feedbackReducer = (state = {}, action) => {
+    // conditional
     if(action.type === 'ADD_q1'){    
         console.log('In feedbackReducer', action);
         return {...state, q1: action.payload};
