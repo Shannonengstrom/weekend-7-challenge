@@ -1,18 +1,14 @@
--- Database should be prime_feedback
-CREATE DATABASE "prime_feedback";
-
--- Switch to "prime_feedback" before making:
--- Table to store the feedback
 CREATE TABLE "feedback" (
   "id" serial primary key,
-  "feeling" INT not null,
-  "understanding" INT not null,
-  "support" INT not null,
-  "comments" text,
+  "q1" INT not null,
+  "q2" INT not null,
+  "q3" INT not null,
+  "q4" text,
   "flagged" boolean default false,
   "date" date not null default CURRENT_DATE
 ); 
 
--- Sample feedback item
-INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+INSERT INTO "feedback" ("q1", "q2", "q3", "q4")
 VALUES (4, 4, 5, 'Doing Great!');
+
+DELETE FROM "feedback" WHERE id=12;
